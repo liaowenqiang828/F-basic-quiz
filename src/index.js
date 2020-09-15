@@ -1,7 +1,8 @@
 import "./style/index.scss";
+import axios from "axios";
 
 const startUp = () => {
-    getData()
+    getUsersData()
         .then(data => {
             createHeader(data);
             createDescription(data);
@@ -9,11 +10,10 @@ const startUp = () => {
 }
 startUp();
 
-async function getData() {
-    const response = await fetch("http://localhost:3333/users");
-    const data = await response.json();
-    await console.log(data[0]);
-    return data[0];
+async function getUsersData() {
+    const response = await axios.get("http://localhost:8080/users/1");
+    const data = await response.data;
+    return data;
 }
 
 function createHeader(data) {
@@ -44,4 +44,9 @@ function createDescription(data) {
 
     aboutMe.appendChild(title);
     aboutMe.appendChild(description);
+}
+
+function createEduction(data) {
+    const education = document.getElementById("education");
+
 }
