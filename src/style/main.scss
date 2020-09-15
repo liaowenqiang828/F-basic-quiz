@@ -1,0 +1,25 @@
+.main {
+  margin-top: 10px;
+  > div > h3 {
+    @include title($font-size-h3, $primary-color);
+  }
+  > ul > h3 {
+    @include title($font-size-h3, $primary-color);
+  }
+  > ul > li > div > h4 {
+    @include title($font-size-h4, $black);
+    margin: 10px 0;
+  }
+  .education-item {
+    display: flex;
+    > span {
+      display: block;
+      width: 20%;
+      font-size: 1.1em;
+    }
+    .description-item > p {
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+  }
+}
