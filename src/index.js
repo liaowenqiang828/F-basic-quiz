@@ -2,7 +2,10 @@ import "./style/index.scss";
 
 const startUp = () => {
     getData()
-        .then(data => createHeader(data));
+        .then(data => {
+            createHeader(data);
+            createDescription(data);
+        });
 }
 startUp();
 
@@ -17,7 +20,7 @@ function createHeader(data) {
     const header = document.getElementById("header");
 
     let avatar = document.createElement("img");
-    avatar.src = `${data.avatar}`;
+    avatar.src = data.avatar;
     avatar.setAttribute("classname", "header-avatar");
     let hello = document.createElement("span");
     hello.innerText = "Hello,";
@@ -29,4 +32,16 @@ function createHeader(data) {
     header.appendChild(avatar);
     header.appendChild(hello);
     header.appendChild(profile);
+}
+
+function createDescription(data) {
+    const aboutMe = document.getElementById("about-me");
+
+    let title = document.createElement("h3");
+    title.innerText = "ABOUT ME";
+    let description = document.createElement("p");
+    description.innerText = data.description;
+
+    aboutMe.appendChild(title);
+    aboutMe.appendChild(description);
 }
