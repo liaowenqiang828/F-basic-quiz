@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "server": "json-server --watch json-server/api.json",
+    "server": "json-server --watch --port 3333 json-server/api.json",
     "lint": "eslint \"src/\" --cache --fix --format table",
     "format": "prettier --write \"src/**/*.{js,css,scss,html}\""
   },
